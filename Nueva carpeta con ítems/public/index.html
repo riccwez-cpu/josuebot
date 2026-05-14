@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AffiGenius - Bot Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="brand">
+                <i class="ph-fill ph-robot"></i>
+                <span>AffiGenius<span class="highlight">SaaS</span></span>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="#" class="nav-item active">
+                    <i class="ph ph-squares-four"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-rocket-launch"></i>
+                    <span>Campagne</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-database"></i>
+                    <span>Database Leads</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-wifi-high"></i>
+                    <span>Proxy Manager</span>
+                </a>
+            </div>
+
+            <div class="nav-bottom">
+                <a href="#" class="nav-item">
+                    <i class="ph ph-gear"></i>
+                    <span>Impostazioni</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="topbar">
+                <div>
+                    <h1 class="page-title">Panoramica</h1>
+                    <p class="page-subtitle">Bentornato, gestisci le tue campagne automatizzate.</p>
+                </div>
+                <div class="user-profile">
+                    <div class="status-badge pulse">
+                        <span class="dot"></span> Proxy Attivo
+                    </div>
+                    <img src="https://ui-avatars.com/api/?name=Admin&background=1e1e2e&color=fff" alt="User" class="avatar">
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                <!-- Stats Cards -->
+                <div class="glass-card stat-card">
+                    <div class="stat-icon purple-gradient">
+                        <i class="ph ph-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Leads Inviate</h3>
+                        <h2>1,245</h2>
+                        <span class="trend positive"><i class="ph ph-trend-up"></i> +12% oggi</span>
+                    </div>
+                </div>
+
+                <div class="glass-card stat-card">
+                    <div class="stat-icon blue-gradient">
+                        <i class="ph ph-cursor-click"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Traffico (Clicks)</h3>
+                        <h2>4,890</h2>
+                        <span class="trend positive"><i class="ph ph-trend-up"></i> +5% oggi</span>
+                    </div>
+                </div>
+
+                <div class="glass-card stat-card">
+                    <div class="stat-icon green-gradient">
+                        <i class="ph ph-chart-line-up"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Conversion Rate</h3>
+                        <h2>25.4%</h2>
+                        <span class="trend neutral"><i class="ph ph-minus"></i> Stabile</span>
+                    </div>
+                </div>
+
+                <!-- Campaign Controls -->
+                <div class="glass-card control-panel col-span-2">
+                    <div class="card-header">
+                        <h2>Campagna Attuale</h2>
+                        <button class="btn btn-primary"><i class="ph ph-play"></i> Avvia Bot</button>
+                    </div>
+                    <div class="campaign-details">
+                        <div class="detail-item">
+                            <span class="label">Piattaforma Target</span>
+                            <span class="value highlight">https://affigenius.net/</span>
+                        </div>
+                        <div class="progress-section">
+                            <div class="progress-labels">
+                                <span>Progresso Leads (12/30)</span>
+                                <span>40%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 40%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Log -->
+                <div class="glass-card activity-log">
+                    <div class="card-header">
+                        <h2>Log Attività</h2>
+                    </div>
+                    <ul class="log-list">
+                        <li class="log-item success">
+                            <div class="log-time">10:45:02</div>
+                            <div class="log-message">Lead 'Ana Serrano' registrata con successo.</div>
+                        </li>
+                        <li class="log-item info">
+                            <div class="log-time">10:44:15</div>
+                            <div class="log-message">Rotazione IP Proxy in corso... [Nuovo IP: 185.x.x.x]</div>
+                        </li>
+                        <li class="log-item info">
+                            <div class="log-time">10:40:00</div>
+                            <div class="log-message">Traffico generato (User-Agent: iPhone 14)</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AffiGenius - Bot Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="brand">
+                <i class="ph-fill ph-robot"></i>
+                <span>AffiGenius<span class="highlight">SaaS</span></span>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="#" class="nav-item">
+                    <i class="ph ph-squares-four"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <i class="ph ph-rocket-launch"></i>
+                    <span>Gestione Campagne</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-users"></i>
+                    <span>Database Contatti</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="topbar">
+                <div>
+                    <h1 class="page-title">Gestione Campagne</h1>
+                    <p class="page-subtitle">Pianifica traffico e leads giornaliere.</p>
+                </div>
+                <div class="user-profile">
+                    <div class="status-badge pulse">
+                        <span class="dot"></span> Proxy Attivo
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                
+                <!-- Form Nuova Campagna -->
+                <div class="glass-card control-panel col-span-3">
+                    <div class="card-header">
+                        <h2>Configura Nuova Campagna</h2>
+                    </div>
+                    <form id="campaign-form" class="campaign-form">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label>URL Destinazione (Link Campagna)</label>
+                                <input type="url" placeholder="https://affigenius.net/promo1" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Database Contatti</label>
+                                <input type="file" accept=".csv" class="file-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label>Fascia Oraria Attività</label>
+                                <div class="time-inputs">
+                                    <span>Dalle </span>
+                                    <input type="time" value="10:00" required>
+                                    <span> alle </span>
+                                    <input type="time" value="18:00" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label>Volume Leads (Registrazioni)</label>
+                                <input type="number" min="0" placeholder="es. 30" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Volume Traffico (Clicks Unici)</label>
+                                <input type="number" min="0" placeholder="es. 150" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-primary"><i class="ph ph-play"></i> Avvia Automazione</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Statistiche Rapide (Clicks e Leads Counters) -->
+                <div class="stats-grid col-span-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 20px;">
+                    <div class="glass-card stat-card" style="padding: 20px; text-align: center; border-radius: 16px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
+                        <h3 style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px; font-weight: 500;">Traffico Generato (Clicks)</h3>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #60a5fa;">1,248</div>
+                        <div class="text-xs" style="color: #4ade80;">Traffico anonimo completato</div>
+                    </div>
+                    <div class="glass-card stat-card" style="padding: 20px; text-align: center; border-radius: 16px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
+                        <h3 style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px; font-weight: 500;">Leads Registrate</h3>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #c084fc;">45</div>
+                        <div class="text-xs" style="color: #4ade80;">Obiettivo Campagna: 50</div>
+                    </div>
+                    <div class="glass-card stat-card" style="padding: 20px; text-align: center; border-radius: 16px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05);">
+                        <h3 style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px; font-weight: 500;">Success Rate (Leads)</h3>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #4ade80;">94%</div>
+                        <div class="text-xs" style="color: #f87171;">3 Fallite (Problema Redirect)</div>
+                    </div>
+                </div>
+
+                <!-- Report Table (Solo Leads) -->
+                <div class="glass-card activity-log col-span-3">
+                    <div class="card-header">
+                        <h2>Report Esiti Registrazioni (Solo Leads)</h2>
+                        <button class="btn btn-secondary"><i class="ph ph-download"></i> Esporta CSV</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="report-table">
+                            <thead>
+                                <tr>
+                                    <th>Data e Ora</th>
+                                    <th>Dati Utente</th>
+                                    <th>IP Assegnato (Mobile)</th>
+                                    <th>URL Destinazione & Redirect</th>
+                                    <th>Stato</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>14/05/2026 10:45</td>
+                                    <td>Ana Serrano<br><span class="text-xs text-muted">aserrano1963...</span></td>
+                                    <td><i class="ph ph-globe-hemisphere-west text-muted"></i> 185.22.44.12</td>
+                                    <td>
+                                        <div style="font-weight: 500;">affigenius.net/promo1</div>
+                                        <div class="text-xs" style="color: #4ade80;">&#8618; Redirect: crm.trackbox.ai/lead/8812</div>
+                                    </td>
+                                    <td><span class="status-success" style="color: #4ade80; background: rgba(74, 222, 128, 0.1); padding: 4px 8px; border-radius: 4px; font-size: 0.85rem;"><i class="ph ph-check-circle"></i> Success</span></td>
+                                </tr>
+                                <tr>
+                                    <td>14/05/2026 10:52</td>
+                                    <td>Marco Rossi<br><span class="text-xs text-muted">marcorossi...</span></td>
+                                    <td><i class="ph ph-globe-hemisphere-west text-muted"></i> 45.88.11.2</td>
+                                    <td>
+                                        <div style="font-weight: 500;">affigenius.net/promo1</div>
+                                        <div class="text-xs" style="color: #f87171;">&#8618; Errore: Nessun reindirizzamento</div>
+                                    </td>
+                                    <td><span class="status-error" style="color: #f87171; background: rgba(248, 113, 113, 0.1); padding: 4px 8px; border-radius: 4px; font-size: 0.85rem;"><i class="ph ph-warning-circle"></i> Failure</span></td>
+                                </tr>
+                                <tr>
+                                    <td>14/05/2026 11:10</td>
+                                    <td>Ramón Bueno<br><span class="text-xs text-muted">ramonbueno...</span></td>
+                                    <td><i class="ph ph-globe-hemisphere-west text-muted"></i> 2.112.55.9</td>
+                                    <td>
+                                        <div style="font-weight: 500;">affigenius.net/promo1</div>
+                                        <div class="text-xs" style="color: #fbbf24;">&#8623; In elaborazione...</div>
+                                    </td>
+                                    <td><span class="status-warning" style="color: #fbbf24; background: rgba(251, 191, 36, 0.1); padding: 4px 8px; border-radius: 4px; font-size: 0.85rem;"><i class="ph ph-spinner"></i> In Corso...</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
